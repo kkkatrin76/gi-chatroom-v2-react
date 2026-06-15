@@ -36,7 +36,7 @@ function renderHtmlContent(value) {
 
 function App() {
     const [name, setName] = useState('[name]')
-    const [pfpUrl, setPfpUrl] = useState('/pfp/you.png')
+    const [pfpUrl, setPfpUrl] = useState('./pfp/you.png')
     const [selectedKey, setSelectedKey] = useState('')
     const [selectedChar, setSelectedChar] = useState(null)
     const [chatItems, setChatItems] = useState([])
@@ -67,7 +67,7 @@ function App() {
         if (storedPfp && storedPfp !== 'null') {
             setPfpUrl(storedPfp)
         } else {
-            setPfpUrl('/pfp/you.png')
+            setPfpUrl('./pfp/you.png')
         }
 
         setBackgroundImage()
@@ -359,7 +359,7 @@ function App() {
                         <div className="c1">
                             <div className="info-section">
                                 <span id="pfp-preview" onClick={() => document.getElementById('pfp-upload').click()}>
-                                    <img src={pfpUrl} alt="Profile" />
+                                    <img src={pfpUrl} alt="PFP" />
                                 </span>
                                 <span id="your-name" onClick={handleChangeName}>{name}</span>'s Phone 📱
                                 <input
