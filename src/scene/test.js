@@ -5,15 +5,15 @@ export const version = "test-1.0"
 export const chars = [{
     key: "test-char",
     name: "Test Texts",
-    pfp: "/pfp/flins.gif",
-    chatpfp: "/pfp/flins.png",
+    pfp: "./pfp/flins.gif",
+    chatpfp: "./pfp/flins.png",
     chats: [
         ts("12:00"),
         notif("A sample notification!"),
         text("This is a test text!"),
         text("This is a test text with 5 seconds timeout", null, 5000),
         emote("/emote/jahoda11.png"),
-        pic("/pfp/varka.webp"),
+        pic("./pfp/varka.webp"),
         choice(null, null, 
             "text", "option1", "Option 1",
             "text", "option2", "Option 2"),
@@ -31,8 +31,8 @@ export const chars = [{
 }, {
     key: "test-call",
     name: "Test Call",
-    pfp: "/pfp/zhongli.gif",
-    chatpfp: "/pfp/zhongli.jpg",
+    pfp: "./pfp/zhongli.gif",
+    chatpfp: "./pfp/zhongli.jpg",
     chats: [
         notif("Call started 21:20"),
         call("This is a test call."),

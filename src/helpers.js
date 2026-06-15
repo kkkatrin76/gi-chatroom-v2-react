@@ -7,6 +7,12 @@ const emote = (content, showif = null, timeout = 2000) => ({ type: 'emote', dir:
 const pic = (content, showif = null, timeout = 2000) => ({ type: 'pic', dir: 'in', content, timeout, showif });
 
 const choice = (showif, timeout, ...args) => {
+    let nextTimeout = 0;
+    if (typeof args[0] === 'number') {
+        nextTimeout = args[0];
+        args = args.slice(1);
+    }
+
     const content = [];
     const maxOptions = 4;
 
@@ -25,7 +31,8 @@ const choice = (showif, timeout, ...args) => {
 
     var obj = {
         type: 'choice',
-        timeout: timeout ? timeout : 2000,
+        timeout: timeout != null ? timeout : 2000,
+        nextTimeout,
         content
     };
 

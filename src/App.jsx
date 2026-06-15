@@ -25,6 +25,15 @@ function replaceNameToken(value) {
     return value.replace(/\$\{name\}/g, displayName)
 }
 
+function renderHtmlContent(value) {
+    const content = replaceNameToken(value)
+    if (typeof content !== 'string') return content
+    if (/<[a-z][\s\S]*>/i.test(content)) {
+        return <span dangerouslySetInnerHTML={{ __html: content }} />
+    }
+    return content
+}
+
 function App() {
     const [name, setName] = useState('[name]')
     const [pfpUrl, setPfpUrl] = useState('/pfp/you.png')
@@ -100,7 +109,15 @@ function App() {
 
     useEffect(() => {
         const resolveScenePath = (pathname) => {
-            const cleanPath = pathname
+            const baseUrl = import.meta.env.BASE_URL || '/'
+            const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+            let relativePath = pathname
+
+            if (normalizedBaseUrl !== '/' && relativePath.startsWith(normalizedBaseUrl)) {
+                relativePath = relativePath.slice(normalizedBaseUrl.length)
+            }
+
+            const cleanPath = relativePath
                 .replace(/^\//, '')
                 .replace(/\/$/, '')
                 .replace(/\//g, '.')
@@ -156,7 +173,7 @@ function App() {
 
     const setBackgroundImage = () => {
         const hours = new Date().getHours()
-        const image = hours >= 6 && hours <= 12 ? '/bg/day.jpeg' : hours > 12 && hours <= 19 ? '/bg/evening.jpg' : '/bg/night.jpeg'
+        const image = hours >= 6 && hours <= 12 ? './bg/day.jpeg' : hours > 12 && hours <= 19 ? './bg/evening.jpg' : './bg/night.jpeg'
         document.body.style.backgroundImage = `url(${image})`
         document.body.style.backgroundSize = 'cover'
         document.body.style.backgroundRepeat = 'no-repeat'
@@ -242,7 +259,7 @@ function App() {
             }
 
             // timeout of 4000 means the item will take 4 seconds to appear on screen
-            const timeout = chat.timeout !== undefined ? chat.timeout : defaultTimeoutMs
+            const timeout = chat.timeout != null ? chat.timeout : defaultTimeoutMs
             nextIndexRef.current = currentIndex + 1
 
             if (chat.type === 'choice') {
@@ -276,7 +293,10 @@ function App() {
             return
         }
 
-        setChatItems((prev) => [...prev, { type: 'notif', content: '- This chat has ended -' }])
+        timeoutRef.current = window.setTimeout(() => {
+            setChatItems((prev) => [...prev, { type: 'notif', content: '- This chat has ended -' }])
+            timeoutRef.current = null
+        }, 2000)
     }
 
     const appendChatItem = (chat) => {
@@ -319,7 +339,7 @@ function App() {
         clearChatTimers()
         timeoutRef.current = window.setTimeout(() => {
             playNextAction(nextIndexRef.current, activeCharRef.current, key)
-        }, choice.timeout ?? defaultChoiceTimeoutMs)
+        }, choice.nextTimeout ?? 0)
     }
 
     return (
@@ -331,7 +351,7 @@ function App() {
                     </div>
                 ) : routeChars === null ? (
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                        <img src="/paimon.webp" alt="paimon" style={{ maxWidth: '300px', marginBottom: 10 }} />
+                        <img src="./paimon.webp" alt="paimon" style={{ maxWidth: '300px', marginBottom: 10 }} />
                         <p style={{ fontSize: '1.5rem', color: '#fff' }}>Uhhh... How about we explore the area ahead of us later?</p>
                     </div>
                 ) : (
@@ -378,14 +398,14 @@ function App() {
                                         if (item.type === 'ts') {
                                             return (
                                                 <div className="chat-ts" key={index}>
-                                                    - <span>{replaceNameToken(item.content)}</span> -
+                                                    - <span>{renderHtmlContent(item.content)}</span> -
                                                 </div>
                                             )
                                         }
                                         if (item.type === 'notif') {
                                             return (
                                                 <div className="chat-notif" key={index}>
-                                                    {replaceNameToken(item.content)}
+                                                    {renderHtmlContent(item.content)}
                                                 </div>
                                             )
                                         }
@@ -401,7 +421,7 @@ function App() {
                                                         </div>
                                                         <div className="right">
                                                             <div className="char-name">{selectedChar?.name}</div>
-                                                            {item.type === 'text' && <div className="message">{replaceNameToken(item.content)}</div>}
+                                                            {item.type === 'text' && <div className="message">{renderHtmlContent(item.content)}</div>}
                                                             {item.type === 'emote' && <img className="emote" src={item.content} alt="emote" />}
                                                             {item.type === 'pic' && <img className="pic" src={item.content} alt="pic" />}
                                                         </div>
@@ -410,7 +430,7 @@ function App() {
                                                     <>
                                                         <div className="left">
                                                             <div className="char-name">{name}</div>
-                                                            {item.type === 'text' && <div className="message">{replaceNameToken(item.content)}</div>}
+                                                            {item.type === 'text' && <div className="message">{renderHtmlContent(item.content)}</div>}
                                                             {item.type === 'emote' && <img className="emote" src={item.content} alt="emote" />}
                                                             {item.type === 'pic' && <img className="pic" src={item.content} alt="pic" />}
                                                         </div>
@@ -428,19 +448,19 @@ function App() {
                                     {callItems.length > 0 && (
                                         <div className="tray">
                                             <div className="icon mic">
-                                                <img src="/icons/mic_on.svg" alt="mic" />
+                                                <img src="./icons/mic_on.svg" alt="mic" />
                                             </div>
                                             <div className="icon cam">
-                                                <img src="/icons/cam_on.svg" alt="cam" />
+                                                <img src="./icons/cam_on.svg" alt="cam" />
                                             </div>
                                             <div className="icon">
-                                                <img src="/icons/hangup.svg" alt="hangup" />
+                                                <img src="./icons/hangup.svg" alt="hangup" />
                                             </div>
                                         </div>
                                     )}
                                     {callItems.map((item, index) => (
                                         <div className={`message ${item.dir}`} key={index}>
-                                            {replaceNameToken(item.content)}
+                                            {renderHtmlContent(item.content)}
                                         </div>
                                     ))}
                                 </div>
@@ -454,7 +474,7 @@ function App() {
                                         ) : option.pic ? (
                                             <img className="choice-image" src={option.pic} alt={replaceNameToken(option.text || option.pic)} />
                                         ) : (
-                                            replaceNameToken(option.text || option.call || option.emote || option.pic)
+                                            renderHtmlContent(option.text || option.call || option.emote || option.pic)
                                         )}
                                     </button>
                                 ))}
