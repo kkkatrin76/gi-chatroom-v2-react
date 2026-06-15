@@ -45,6 +45,7 @@ body {
   padding: 0 20px 14px;
   border-bottom: 1px solid rgb(62, 62, 71);
   margin-bottom: 10px;
+  text-wrap: wrap; 
 }
 
 .info-section #pfp-preview {
@@ -361,27 +362,67 @@ body {
 
 /* Phone landscape mode adjustments */
 @media screen and (max-width: 900px) and (orientation: landscape) {
+  .main {
+    padding: 0px;
+  }
   .content {
-    width: 95%;
+    width: 100%;
+    max-height: 100dvh;
   }
   .c1 {
     font-size: 0.9em;
+    padding: 5px 0;
   }
 
   .info-section {
     font-size: 0.7rem;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+  }
+  .info-section #pfp-preview {
+    margin-right: 5px;
+  }
+
+  .char-item button {
+    padding: 10px 10px;
+    font-size: 0.75rem;
+  }
+
+  .c2 {
+    padding: 10px 10px 0;
   }
 
   .chat-name {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
+    padding: 6px 0 10px 0;
   }
 
+  .chat-list-wrapper {
+    font-size: 0.8rem;
+    overflow-y: scroll;
+  }
+
+  .choice-list {
+    font-size: 0.8rem;
+    padding: 5px 7px;
+  }
+
+  .char-name {
+    font-size: 0.75rem;
+  }
+
+  .chat-bubble {
+    margin: 10px 0;
+  }
   .chat-bubble .message {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    padding: 8px 12px;
   }
 
   .choice-btn {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    margin: 5px 0;
   }
 
   .info-section #pfp-preview img {
@@ -394,9 +435,13 @@ body {
     height: 50px;
   }
 
+  .chat-list {
+    padding: 0 20px 20px;
+  }
+
   .chat-bubble .char-pic {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 
   .chat-bubble .emote {
@@ -418,10 +463,19 @@ body {
   }
 
   .credits {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
+    right: 6px;
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .credits a {
+    color: rgba(255, 255, 255, 0.5);
   }
 
   #version {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
+    left: auto;
+    right: 6px;
+    bottom: 2px;
+    color: rgba(205, 178, 130, 0.5);
   }
 }

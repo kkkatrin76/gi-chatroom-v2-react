@@ -11,7 +11,7 @@ export const chars = [{
 		ts("16:06"),
 		choice(null, null, "text", "v1-1", "so like do you think flins would look at me weird"),
 		choice(null, null, "text", "v2-1", "if i tell him his new piercings look really hot on him"),
-		text("On the contraty, I believe he would be very much pleased to hear that."),
+		text("On the contrary, I believe he would be very much pleased to hear that."),
 		choice(null, null, "text", "v3-1", "is that proper punctuations????? you've been hanging out with flins too much"),
 		choice(null, null, "text", "v4-1", "go hang out with that crush of yours instead, i saw them giving you bedroom eyes last rugby match"),
 		text("Oh?"),

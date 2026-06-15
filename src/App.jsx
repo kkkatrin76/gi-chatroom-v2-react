@@ -55,8 +55,9 @@ function App() {
     useEffect(() => {
         const storedName = localStorage.getItem('gichv2-name')
         if (!storedName || storedName === 'null') {
-            const promptName = prompt('Please enter your name', '[name]')
-            const finalName = promptName && promptName !== 'null' ? promptName : '[name]'
+            const promptName = prompt('Please enter your name (max 15 characters)', '[name]')
+            let finalName = promptName && promptName !== 'null' ? promptName : '[name]'
+            finalName = finalName.slice(0, 15)
             setName(finalName)
             localStorage.setItem('gichv2-name', finalName)
         } else {
@@ -186,9 +187,10 @@ function App() {
     }
 
     const handleChangeName = () => {
-        const newName = prompt('Please enter your new name', name)
+        const newName = prompt('Please enter your new name (max 15 characters)', name)
         if (newName && newName !== 'null') {
-            saveUserName(newName)
+            const truncatedName = newName.slice(0, 15)
+            saveUserName(truncatedName)
         }
     }
 
@@ -361,7 +363,7 @@ function App() {
                                 <span id="pfp-preview" onClick={() => document.getElementById('pfp-upload').click()}>
                                     <img src={pfpUrl} alt="PFP" />
                                 </span>
-                                <span id="your-name" onClick={handleChangeName}>{name}</span>'s Phone 📱
+                                <div><span id="your-name" onClick={handleChangeName}>{name}</span>'s Phone 📱</div>
                                 <input
                                     id="pfp-upload"
                                     type="file"
