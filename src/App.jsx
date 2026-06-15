@@ -488,31 +488,6 @@ function App() {
             </div>
 
             <div id="version">{routeVersion && `v. ${routeVersion}`}</div>
-            <div className="credits">
-                <div>
-                    <a target="_blank" rel="noreferrer" href="https://genshin.hoyoverse.com/en/">
-                        Genshin Impact
-                    </a>{' '}
-                    (c){' '}
-                    <a target="_blank" rel="noreferrer" href="https://www.hoyoverse.com/en-us/">
-                        Hoyoverse
-                    </a>
-                </div>
-                <div>
-                    Wallpapers: <a target="_blank" rel="noreferrer" href="https://rare-gallery.com/341467-genshin-impact-video-game-anime-girls-scenery.html">
-                        Day
-                    </a>{' '}
-                    / <a target="_blank" rel="noreferrer" href="https://www.wallpaperflare.com/genshin-impact-landscape-wallpaper-ymqho">
-                        Evening
-                    </a>{' '}
-                    / <a target="_blank" rel="noreferrer" href="https://www.pockettactics.com/wp-content/uploads/2021/02/genshin-impact-wallpaper-4.jpg">
-                        Night
-                    </a>{' '}
-                    | <a target="_blank" rel="noreferrer" href="https://genshinresource.tumblr.com/emotelist">
-                        Emotes
-                    </a>
-                </div>
-            </div>
         </div>
     )
 }
