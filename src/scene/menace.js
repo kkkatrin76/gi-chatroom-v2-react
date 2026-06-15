@@ -1,6 +1,6 @@
 import { ts, pause, notif, text, emote, pic, choice } from "../helpers";
 
-export const version = "menace-1.0";
+export const version = "menace-1.0.2";
 
 export const chars = [{
 	key: "varka",

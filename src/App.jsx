@@ -67,6 +67,9 @@ function App() {
         const storedPfp = localStorage.getItem('gichv2-pfp')
         if (storedPfp && storedPfp !== 'null') {
             setPfpUrl(storedPfp)
+            // Preload the profile picture
+            const img = new Image()
+            img.src = storedPfp
         } else {
             setPfpUrl('./pfp/you.png')
         }
