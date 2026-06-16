@@ -3,50 +3,50 @@ import { ts, pause, notif, text, emote, pic, choice } from "../helpers";
 export const version = "menace-1.0.2";
 
 export const chars = [{
-	key: "varka",
-	name: "golden retriever ouppy",
-	pfp: "./pfp/varka.webp",
-	chatpfp: "./pfp/varka.png",
-	chats: [
-		ts("16:06"),
-		choice(null, null, "text", "v1-1", "so like do you think flins would look at me weird"),
-		choice(null, null, "text", "v2-1", "if i tell him his new piercings look really hot on him"),
-		text("On the contrary, I believe he would be very much pleased to hear that."),
-		choice(null, null, "text", "v3-1", "is that proper punctuations????? you've been hanging out with flins too much"),
-		choice(null, null, "text", "v4-1", "go hang out with that crush of yours instead, i saw them giving you bedroom eyes last rugby match"),
-		text("Oh?"),
-		text("Duly noted. I will be sure to use this information well."),
-		choice(null, null, "text", "v5-1", "yeah pls just ask them out already"),
-		choice(null, null, "text", "v6-1", "that way you can ask them to ask flins if he likes me enough to go on a date with him"),
-		text("May I enquire the reasons to your implied hesistance in asking him out yourself?"),
-		choice(null, null, 
-			"text", "v7-1", "ARE YOU CRAZY  I CAN'T DO THTA", 
-			"emote", "v7-2", "./emote/jahoda11.png"),
-		choice(null, null, "text", "v8-1", "I FREEZE WHENEVER HE LOOKSAT ME WITH LTHOSE INTENNS EYE S"),
-		text("I see. I daresay he thinks that your reaction is adorable regardless."),
-		choice(null, null, "text", "v9-1", "is this what they call exposure therapy"),
-		choice(null, null, "text", "v10-1", "btw why are you talking like my love my heart my light kyryll chudomirovich flins stop it ew"),
-		text("Yes, is that not a wonder indeed?"),
-		choice(null, null, "text", "v11-1", "oh wait i see you"),
-		choice(null, null, "text", "v12-1", "cmere so i can preach about my lord and savior kyryll chudomirovich flins"),
-		choice(null, null, "text", "v13-1", "i'm on your right"),
-		choice(null, null, "text", "v14-1", "hey"),
-		choice(null, null, "text", "v15-1", "dumbass i'm like right here can you shove your fans away for a moment"),
-		text("Ah, to think that this pleasant chat will be over soon. What a shame."),
-		text("I understand the tumultuous emotions you must be facing now, however please don't be too embarrassed, ${name}.", null, 5000),
-		choice(null, 5000, "text", "v16-1", "INMGSO SOoRRY"),
-		text("There is no need to apologize for honest mistakes. I was most definitely not offended by this fortunate mishap."),
-		text("In fact, I rather enjoyed the experience. Your enthusiasm was a delight to witness."),
-		text("On a related note, I quite enjoy fresh sashimi, if you're up for it today after class."),
-		emote("./emote/flins2.png")
-	]
+  key: "varka",
+  name: "golden retriever ouppy",
+  pfp: "./pfp/varka.webp",
+  chatpfp: "./pfp/varka.png",
+  chats: [
+    ts("16:06"),
+    choice(null, null, "text", "v1-1", "so like do you think flins would look at me weird"),
+    choice(null, null, "text", "v2-1", "if i tell him his new piercings look really hot on him"),
+    text("On the contrary, I believe he would be very much pleased to hear that."),
+    choice(null, null, "text", "v3-1", "is that proper punctuations????? you've been hanging out with flins too much"),
+    choice(null, null, "text", "v4-1", "go hang out with that crush of yours instead, i saw them giving you bedroom eyes last rugby match"),
+    text("Oh?"),
+    text("Duly noted. I will be sure to use this information well."),
+    choice(null, null, "text", "v5-1", "yeah pls just ask them out already"),
+    choice(null, null, "text", "v6-1", "that way you can ask them to ask flins if he likes me enough to go on a date with him"),
+    text("May I enquire the reasons to your implied hesistance in asking him out yourself?"),
+    choice(null, null,
+      "text", "v7-1", "ARE YOU CRAZY  I CAN'T DO THTA",
+      "emote", "v7-2", "./emote/jahoda11.png"),
+    choice(null, null, "text", "v8-1", "I FREEZE WHENEVER HE LOOKSAT ME WITH LTHOSE INTENNS EYE S"),
+    text("I see. I daresay he thinks that your reaction is adorable regardless."),
+    choice(null, null, "text", "v9-1", "is this what they call exposure therapy"),
+    choice(null, null, "text", "v10-1", "btw why are you talking like my love my heart my light kyryll chudomirovich flins stop it ew"),
+    text("Yes, is that not a wonder indeed?"),
+    choice(null, null, "text", "v11-1", "oh wait i see you"),
+    choice(null, null, "text", "v12-1", "cmere so i can preach about my lord and savior kyryll chudomirovich flins"),
+    choice(null, null, "text", "v13-1", "i'm on your right"),
+    choice(null, null, "text", "v14-1", "hey"),
+    choice(null, null, "text", "v15-1", "dumbass i'm like right here can you shove your fans away for a moment"),
+    text("Ah, to think that this pleasant chat will be over soon. What a shame."),
+    text("I understand the tumultuous emotions you must be facing now, however please don't be too embarrassed, ${name}.", null, 5000),
+    choice(null, 5000, "text", "v16-1", "INMGSO SOoRRY"),
+    text("There is no need to apologize for honest mistakes. I was most definitely not offended by this fortunate mishap."),
+    text("In fact, I rather enjoyed the experience. Your enthusiasm was a delight to witness."),
+    text("On a related note, I quite enjoy fresh sashimi, if you're up for it today after class."),
+    emote("./emote/flins2.png")
+  ]
 
 }, {
-	key: "flins",
-	name: "[e(mo]m)",
-	pfp: "./pfp/flins.gif",
-	chatpfp: "./pfp/flins.png",
-	chats: [
+  key: "flins",
+  name: "[e(mo]m)",
+  pfp: "./pfp/flins.gif",
+  chatpfp: "./pfp/flins.png",
+  chats: [
     ts("11:05"),
     choice(null, null, "text", "f1-1", "hey"),
     text("Hey!"),
@@ -90,11 +90,11 @@ export const chars = [{
   ]
 
 }, {
-	key: "kaveh",
-	name: "veveh",
-	pfp: "./pfp/kaveh.gif",
-	chatpfp: "./pfp/kaveh.png",
-	chats: [
+  key: "kaveh",
+  name: "veveh",
+  pfp: "./pfp/kaveh.gif",
+  chatpfp: "./pfp/kaveh.png",
+  chats: [
     ts("19:30"),
     choice(null, null, "text", "k1-1", "Hello."),
     text("Hello."),
@@ -124,11 +124,11 @@ export const chars = [{
   ]
 
 }, {
-	key: "neuvillette",
-	name: "Chief Justice Iudex Neuvillette",
-	pfp: "./pfp/neuvillette.gif",
-	chatpfp: "./pfp/neuvillette.png",
-	chats: [
+  key: "neuvillette",
+  name: "Chief Justice Iudex Neuvillette",
+  pfp: "./pfp/neuvillette.gif",
+  chatpfp: "./pfp/neuvillette.png",
+  chats: [
     ts("12:20"),
     choice(null, null, "text", "n1-1", "I got some water imported from Bayda Harbor"),
     text("And you've decided to tell me this because...?"),
@@ -160,11 +160,11 @@ export const chars = [{
   ]
 
 }, {
-	key: "wriothesley",
-	name: "rizz",
-	pfp: "./pfp/wriothesley.gif",
-	chatpfp: "./pfp/wriothesley.png",
-	chats: [
+  key: "wriothesley",
+  name: "rizz",
+  pfp: "./pfp/wriothesley.gif",
+  chatpfp: "./pfp/wriothesley.png",
+  chats: [
     ts("20:49"),
     choice(null, null, "text", "w1-1", "hypothetically if someone harasses me can i file a complaint even if i have no evidence?"),
     text("Yes, certainly. You can file a complaint based on your testimony, even if you don't have physical evidence. However, it's important to note that without evidence, it may be more challenging to pursue legal action against the perpetrator.", null, 5000),
@@ -203,11 +203,11 @@ export const chars = [{
   ]
 
 }, {
-	key: "lisa",
-	name: "Library Proprietress",
-	pfp: "./pfp/lisa.gif",
-	chatpfp: "./pfp/lisa.png",
-	chats: [
+  key: "lisa",
+  name: "Library Proprietress",
+  pfp: "./pfp/lisa.gif",
+  chatpfp: "./pfp/lisa.png",
+  chats: [
     ts("13:56"),
     choice(null, null, "text", "l1-1", "Ms. Lisa, I would like to report a rule violation that happened today at 12:33pm Mondstadt time."),
     text("Oh my? State the offender, dearest member of the Favonius library ${name}."),

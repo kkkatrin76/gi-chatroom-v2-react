@@ -7,38 +7,38 @@ const emote = (content, showif = null, timeout = 2000) => ({ type: 'emote', dir:
 const pic = (content, showif = null, timeout = 2000) => ({ type: 'pic', dir: 'in', content, timeout, showif });
 
 const choice = (showif, timeout, ...args) => {
-    let nextTimeout = 0;
-    if (typeof args[0] === 'number') {
-        nextTimeout = args[0];
-        args = args.slice(1);
+  let nextTimeout = 0;
+  if (typeof args[0] === 'number') {
+    nextTimeout = args[0];
+    args = args.slice(1);
+  }
+
+  const content = [];
+  const maxOptions = 4;
+
+  for (let i = 0; i < Math.min(args.length, maxOptions * 3); i += 3) {
+    const kind = args[i];
+    const key = args[i + 1];
+    const value = args[i + 2];
+    // console.log({ kind, key, value });
+
+    if (!kind || !key || value === undefined) {
+      continue;
     }
 
-    const content = [];
-    const maxOptions = 4;
+    content.push({ key, [kind]: value });
+  }
 
-    for (let i = 0; i < Math.min(args.length, maxOptions * 3); i += 3) {
-        const kind = args[i];
-        const key = args[i + 1];
-        const value = args[i + 2];
-        // console.log({ kind, key, value });
+  var obj = {
+    type: 'choice',
+    timeout: timeout != null ? timeout : 2000,
+    nextTimeout,
+    content
+  };
 
-        if (!kind || !key || value === undefined) {
-            continue;
-        }
+  if (showif) obj.showif = showif;
 
-        content.push({ key, [kind]: value });
-    }
-
-    var obj = {
-        type: 'choice',
-        timeout: timeout != null ? timeout : 2000,
-        nextTimeout,
-        content
-    };
-
-    if (showif) obj.showif = showif;
-
-    return obj;
+  return obj;
 };
 
 // TODO: add call functions
@@ -46,12 +46,12 @@ const call = (content, showif = null, timeout = 4000) => ({ type: 'call', dir: '
 // const callAudio = (content, showif = null, timeout = 2000) => ({ type: 'text', dir: 'in', content, timeout, showif });
 
 export {
-    ts,
-    pause,
-    notif,
-    text,
-    emote,
-    pic,
-    choice,
-    call,
+  ts,
+  pause,
+  notif,
+  text,
+  emote,
+  pic,
+  choice,
+  call,
 };
